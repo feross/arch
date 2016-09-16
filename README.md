@@ -9,7 +9,7 @@
 
 ### `os.arch()` for node and the browser
 
-[![Sauce Test Status](https://saucelabs.com/browser-matrix/arch.svg)](https://saucelabs.com/u/arch)
+[![Sauce Test Status](https://saucelabs.com/browser-matrix/arch2.svg)](https://saucelabs.com/u/arch2)
 
 This module is used by [WebTorrent Desktop](http://webtorrent.io/desktop) to
 determine if the user is on a 32-bit vs. 64-bit operating system to offer the
