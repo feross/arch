@@ -1,7 +1,7 @@
 {
   "name": "arch",
   "description": "`os.arch()` for node and the browser",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "author": {
     "name": "Feross Aboukhadijeh",
     "email": "feross@feross.org",
