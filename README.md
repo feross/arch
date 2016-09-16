@@ -34,7 +34,7 @@ and `navigator.cpuClass` to make a best guess.
 
 If there is no *affirmative indication* that the architecture is 64-bit, then
 32-bit will be assumed. This makes this package perfect for determining what
-installer exectuable to offer to desktop app users. If there is ambiguity, then
+installer executable to offer to desktop app users. If there is ambiguity, then
 the user will get the 32-bit installer, which will work fine even for a user with
 a 64-bit OS.
 
