@@ -31,7 +31,7 @@ module.exports = function arch () {
   }
 
   /**
-   * CPU class strings that indicates a 64-bit OS
+   * CPU class strings that indicate a 64-bit OS
    * See: http://stackoverflow.com/a/6267019/292185
    */
   if (navigator.cpuClass === 'x64') {
