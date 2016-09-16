@@ -32,7 +32,7 @@ In the browser, there is no spec that defines where this information lives, so w
 check all known locations including `navigator.userAgent`, `navigator.platform`,
 and `navigator.cpuClass` to make a best guess.
 
-If there is no *affirmitive indication* that the architecture is 64-bit, then
+If there is no *affirmative indication* that the architecture is 64-bit, then
 32-bit will be assumed. This makes this package perfect for determining what
 installer exectuable to offer to desktop app users. If there is ambiguity, then
 the user will get the 32-bit installer, which will work fine even for a user with
