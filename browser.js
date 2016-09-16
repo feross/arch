@@ -3,7 +3,6 @@ module.exports = function arch () {
    * User agent strings that indicate a 64-bit OS
    * See: http://stackoverflow.com/a/13709431/292185
    */
-
   var userAgent = navigator.userAgent
   if ([
     'x86_64',
@@ -24,7 +23,6 @@ module.exports = function arch () {
    * Platform strings that indicate a 64-bit OS
    * See: http://stackoverflow.com/a/19883965/292185
    */
-
   var platform = navigator.platform
   if (platform === 'MacIntel' || platform === 'Linux x86_64') {
     return 'x64'
