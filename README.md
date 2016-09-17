@@ -43,6 +43,15 @@ var cpus = require('arch')
 console.log(arch()) // always returns 'x64' or 'x86'
 ```
 
+For reference, `x64` means 64-bit and `x86` means 32-bit.
+
+Here is some history behind these naming conventions:
+
+- https://en.wikipedia.org/wiki/X86
+- https://en.wikipedia.org/wiki/IA-32
+- https://en.wikipedia.org/wiki/X86-64
+
+
 ## license
 
 MIT. Copyright (c) [Feross Aboukhadijeh](http://feross.org).
