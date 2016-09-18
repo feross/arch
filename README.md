@@ -7,7 +7,7 @@
 [downloads-image]: https://img.shields.io/npm/dm/arch.svg
 [downloads-url]: https://npmjs.org/package/arch
 
-### `os.arch()` for node and the browser
+### Better `os.arch()` for node and the browser -- detect OS architecture
 
 [![Sauce Test Status](https://saucelabs.com/browser-matrix/arch2.svg)](https://saucelabs.com/u/arch2)
 
@@ -15,10 +15,17 @@ This module is used by [WebTorrent Desktop](http://webtorrent.io/desktop) to
 determine if the user is on a 32-bit vs. 64-bit operating system to offer the
 right app installer.
 
-The `os.arch()` method returns a string identifying the operating system CPU
-architecture *for which the Node.js binary was compiled*. **In the browser, the
-operating system CPU architecture itself is returned, as opposed to merely the
-architecture of the browser.**
+In Node.js, the `os.arch()` method (and `process.arch` property) returns a string
+identifying the operating system CPU architecture **for which the Node.js binary
+was compiled**.
+
+This is not the same as the **operating system CPU architecture**. For example,
+you can run Node.js 32-bit on a 64-bit OS. In that situation, `os.arch()` will
+return a misleading 'x86' (32-bit) value, instead of 'x64' (64-bit).
+
+Use this package to get the actual operating system CPU architecture.
+
+**BONUS: This package works in the browser too.**
 
 ## install
 
@@ -27,6 +34,11 @@ npm install arch
 ```
 
 ## usage
+
+```js
+var arch = require('arch')
+console.log(arch()) // always returns 'x64' or 'x86'
+```
 
 In the browser, there is no spec that defines where this information lives, so we
 check all known locations including `navigator.userAgent`, `navigator.platform`,
@@ -38,11 +50,6 @@ installer executable to offer to desktop app users. If there is ambiguity, then
 the user will get the 32-bit installer, which will work fine even for a user with
 a 64-bit OS.
 
-```js
-var cpus = require('arch')
-console.log(arch()) // always returns 'x64' or 'x86'
-```
-
 For reference, `x64` means 64-bit and `x86` means 32-bit.
 
 Here is some history behind these naming conventions:
@@ -51,6 +58,11 @@ Here is some history behind these naming conventions:
 - https://en.wikipedia.org/wiki/IA-32
 - https://en.wikipedia.org/wiki/X86-64
 
+## Node.js proposal - `os.sysarch()`
+
+Note: There is
+[a proposal](https://github.com/nodejs/node-v0.x-archive/issues/2862#issuecomment-103942051)
+to add this functionality to Node.js as `os.sysarch()`.
 
 ## license
 

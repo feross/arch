@@ -1,6 +1,6 @@
 {
   "name": "arch",
-  "description": "`os.arch()` for node and the browser",
+  "description": "Better `os.arch()` for node and the browser -- detect OS architecture",
   "version": "1.0.1",
   "author": {
     "name": "Feross Aboukhadijeh",
