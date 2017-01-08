@@ -1,6 +1,6 @@
 module.exports = function arch () {
   /**
-   * User agent strings that indicate a 64-bit OS
+   * User agent strings that indicate a 64-bit OS.
    * See: http://stackoverflow.com/a/13709431/292185
    */
   var userAgent = navigator.userAgent
@@ -20,7 +20,7 @@ module.exports = function arch () {
   }
 
   /**
-   * Platform strings that indicate a 64-bit OS
+   * Platform strings that indicate a 64-bit OS.
    * See: http://stackoverflow.com/a/19883965/292185
    */
   var platform = navigator.platform
@@ -29,7 +29,7 @@ module.exports = function arch () {
   }
 
   /**
-   * CPU class strings that indicate a 64-bit OS
+   * CPU class strings that indicate a 64-bit OS.
    * See: http://stackoverflow.com/a/6267019/292185
    */
   if (navigator.cpuClass === 'x64') {
