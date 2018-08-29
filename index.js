@@ -48,7 +48,7 @@ module.exports = function arch () {
    * On Linux, use the `getconf` command to get the architecture.
    */
   if (process.platform === 'linux') {
-    var output = cp.execSync('getconf LONG_BIT', {encoding: 'utf8'})
+    var output = cp.execSync('getconf LONG_BIT', { encoding: 'utf8' })
     return output === '64\n' ? 'x64' : 'x86'
   }
 
