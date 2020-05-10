@@ -1,3 +1,4 @@
+/*! arch. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 var cp = require('child_process')
 var fs = require('fs')
 var path = require('path')
