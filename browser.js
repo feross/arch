@@ -1,4 +1,4 @@
-module.exports = function arch () {
+module.exports = async function arch () {
   /**
    * User agent strings that indicate a 64-bit OS.
    * See: http://stackoverflow.com/a/13709431/292185
@@ -34,6 +34,17 @@ module.exports = function arch () {
    */
   if (navigator.cpuClass === 'x64') {
     return 'x64'
+  }
+
+  /** 
+   * Bitness number hat indicate a 64-bit OS.
+   * See: https://developer.mozilla.org/en-US/docs/Web/API/NavigatorUAData/getHighEntropyValues 
+   */ 
+  if(navigator.userAgentData && navigator.userAgentData.getHighEntropyValues){ 
+    var system = await navigator.userAgentData.getHighEntropyValues(["bitness"]); 
+    if(system.bitness === 64 || system.bitness === "64"){ 
+      return 'x64'; 
+    } 
   }
 
   /**
