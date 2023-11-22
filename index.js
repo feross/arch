@@ -1,7 +1,5 @@
 /*! arch. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 var cp = require('child_process')
-var fs = require('fs')
-var path = require('path')
 
 /**
  * Returns the operating system's CPU architecture. This is different than
@@ -29,25 +27,16 @@ module.exports = function arch () {
   }
 
   /**
-   * On Windows, the most reliable way to detect a 64-bit OS from within a 32-bit
-   * app is based on the presence of a WOW64 file: %SystemRoot%\SysNative.
-   * See: https://twitter.com/feross/status/776949077208510464
+   * On Windows, use the standard environment variables:
+   * "64-bit process: PROCESSOR_ARCHITECTURE=AMD64/IA64/ARM64"
+   * "32-bit process: PROCESSOR_ARCHITECTURE=x86, PROCESSOR_ARCHITEW6432=%PROCESSOR_ARCHITECTURE%"
+   * https://learn.microsoft.com/en-gb/windows/win32/winprog64/wow64-implementation-details#environment-variables
    */
   if (process.platform === 'win32') {
-    var useEnv = false
-    try {
-      useEnv = !!(process.env.SYSTEMROOT && fs.statSync(process.env.SYSTEMROOT))
-    } catch (err) {}
+    var arch = process.env.PROCESSOR_ARCHITEW6432 || process.env.PROCESSOR_ARCHITECTURE
+    if (arch === 'ARM64') return 'arm64'
 
-    var sysRoot = useEnv ? process.env.SYSTEMROOT : 'C:\\Windows'
-
-    // If %SystemRoot%\SysNative exists, we are in a WOW64 FS Redirected application.
-    var isWOW64 = false
-    try {
-      isWOW64 = !!fs.statSync(path.join(sysRoot, 'sysnative'))
-    } catch (err) {}
-
-    return isWOW64 ? 'x64' : 'x86'
+    return ['AMD64', 'IA64'].includes(arch) ? 'x64' : 'x86'
   }
 
   /**
