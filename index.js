@@ -17,10 +17,15 @@ module.exports = function arch () {
   }
 
   /**
-   * All recent versions of Mac OS are 64-bit.
+   * On macOS, we need to detect if x64 Node is running because the CPU is truly
+   * an Intel chip, or if it's running on Apple Silicon via Rosetta 2:
+   * https://developer.apple.com/documentation/apple-silicon/about-the-rosetta-translation-environment
    */
   if (process.platform === 'darwin') {
-    return 'x64'
+    var nativeArm = process.arch === 'arm64'
+    var rosettaArm = cp.execSync('sysctl -in sysctl.proc_translated', { encoding: 'utf8' }) === '1\n'
+
+    return (nativeArm || rosettaArm) ? 'arm64' : 'x64'
   }
 
   /**
