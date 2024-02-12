@@ -1,3 +1,4 @@
+/*! arch. MIT License. Feross Aboukhadijeh <https://feross.org/opensource> */
 module.exports = function arch () {
   /**
    * User agent strings that indicate a 64-bit OS.

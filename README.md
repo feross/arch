@@ -1,7 +1,7 @@
-# arch [![travis][travis-image]][travis-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
+# arch [![ci][ci-image]][ci-url] [![npm][npm-image]][npm-url] [![downloads][downloads-image]][downloads-url] [![javascript style guide][standard-image]][standard-url]
 
-[travis-image]: https://img.shields.io/travis/feross/arch/master.svg
-[travis-url]: https://travis-ci.org/feross/arch
+[ci-image]: https://img.shields.io/github/workflow/status/feross/arch/ci/master
+[ci-url]: https://github.com/feross/arch/actions
 [npm-image]: https://img.shields.io/npm/v/arch.svg
 [npm-url]: https://npmjs.org/package/arch
 [downloads-image]: https://img.shields.io/npm/dm/arch.svg

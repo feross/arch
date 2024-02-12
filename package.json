@@ -39,8 +39,8 @@
   },
   "scripts": {
     "test": "standard && npm run test-node && npm run test-browser",
-    "test-browser": "airtap -- test/*.js",
-    "test-browser-local": "airtap --local -- test/*.js",
+    "test-browser": "airtap --concurrency 1 -- test/*.js",
+    "test-browser-local": "airtap --preset local -- test/*.js",
     "test-node": "tape test/*.js"
   },
   "funding": [
